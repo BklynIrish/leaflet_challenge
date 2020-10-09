@@ -1,11 +1,11 @@
-// Store our API endpoint inside queryUrl
+// Store API endpoint inside queryUrl
 var queryUrl = ["https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",
     "./static/GeoJSON/PB2002_boundaries.json",
     "./static/GeoJSON/PB2002_orogens.json",
     "./static/GeoJSON/PB2002_plates.json"
 ]
 
-// Define variables for our base layers
+// Define variables for base layers
 var streetmap = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
     tileSize: 512,
@@ -33,7 +33,8 @@ var satelliteStreets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/
     accessToken: API_KEY
 })
 
-// Create our map, giving it the streetmap and earthquakes layers to display on load
+// make the streetmap and earthquakes' layers
+to display on load
 var myMap = L.map("map", {
     center: [
         37.09, -95.71
@@ -49,7 +50,7 @@ let baseMaps = {
     "Satellite": satelliteStreets
 };
 
-// Create the layers for our two different sets of data, earthquakes and tectonicplates.
+// Define the layers.
 let earthquakesLayer = new L.LayerGroup();
 let boundaryLayer = new L.LayerGroup();
 let orogensLayer = new L.LayerGroup();
@@ -57,8 +58,8 @@ let platesLayer = new L.LayerGroup();
 
 // let tectonicplates = new L.LayerGroup();
 
-// We define an object contains all of our overlays.
-// This overlay will be visible all the time.
+// define an object containing all the overlays.
+// we hope it pops up as an option
 let overlayMaps = {
 
     "Earthquakes": earthquakesLayer,
@@ -67,7 +68,7 @@ let overlayMaps = {
     "Plates": platesLayer
 };
 
-// Then we add a control to the map that will allow the user to change which
+// now the mechanism by which you switch layers and allow to then see which
 // layers are visible.
 L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 
