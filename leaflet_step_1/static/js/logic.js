@@ -10,7 +10,7 @@ d3.json(queryUrl, function(data) {
     console.log("data.features", data.features);
 });
 
-var colors = ["#d53e4f", "#fc8d59", "#fee08b", "#ffffbf", "#e6f598", "#99d594", "#3288bd"];
+var colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#e377c2", "#17becf"];
 
 var quakeDivision = [1, 2, 3, 3.5, 4, 5, 6];
 
